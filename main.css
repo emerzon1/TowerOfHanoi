@@ -1,0 +1,129 @@
+.container{
+	margin-top:300px;
+	border:none;
+}
+h1, h2, h3, h4, h5{
+	text-align:center;
+}
+.one{
+	background-color:green;
+	width:50px;
+	height:25px;
+	position:absolute;
+	left:312.5px;
+	border: 1px dashed black;
+	top:455px;
+}
+.two{
+	background-color:blue;
+	width:75px;
+	height:25px;
+	position:absolute;
+	left:300px;
+	border: 1px dashed black;
+	top:480px;
+}
+.three{
+	background-color:orange;
+	width:100px;
+	height:25px;
+	position:absolute;
+	left:287.5px;
+	border: 1px dashed black;
+	top:505px;
+}
+.four{
+	background-color:yellow;
+	width:125px;
+	height:25px;
+	position:absolute;
+	left:275px;
+	border: 1px dashed black;
+	top:530px;
+}
+.five{
+	background-color:red;
+	width:150px;
+	height:25px;
+	position:absolute;
+	left:262.5px;
+	border: 1px dashed black;
+	top:555px;
+}
+.six{
+	background-color:indigo;
+	width:175px;
+	height:25px;
+	position:absolute;
+	left:250px;
+	border: 1px dashed black;
+	top:580px;
+}
+.poleA{
+	z-index:-1;
+	background-color:black;
+	height:275px;
+	width:25px;
+	position:absolute;
+	top:340px;
+	left:325px;
+	border:none;
+}
+.poleB{
+	z-index:-1;
+	background-color:black;
+	height:275px;
+	width:25px;
+	position:absolute;
+	top:340px;
+	left:725px;
+	border:none;
+}
+.reset, .solve{
+	font-size:25px;
+}
+.poleC{
+	z-index:-1;
+	background-color:black;
+	height:275px;
+	width:25px;
+	position:absolute;
+	top:340px;
+	left:1125px;
+	border:none;
+}
+.win{
+	color:green;
+}
+.bottomA{
+	z-index:-1;
+	background-color:#222;
+	border:none;
+	position:absolute;
+	top:605px;
+	left:240px;
+	height:20px;
+	width:200px;
+}
+.bottomB{
+	z-index:-1;
+	background-color:#222;
+	border:none;
+	position:absolute;
+	height:20px;
+	width:200px;
+	top:605px;
+	left:640px;
+
+
+}
+.bottomC{
+	z-index:-1;
+	background-color:#222;
+	border:none;
+	position:absolute;
+	top:605px;
+	left:1040px;
+	height:20px;
+	width:200px;
+}
