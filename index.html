@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<head>
+	<link href="main.css" rel="stylesheet" type="text/css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<title>Tower of Hanoi</title>
+</head>
+<body>
+	<h1>Tower of Hanoi</h1>
+	<h2>Get all disks from the first pole to the third pole</h2>
+	<h3>You can only move the topmost disk and you can't place a larger disk on top of a smaller one.</h3>
+	<h4>In order to move the disks, you need to click on the source pole and then the destination pole.</h4>
+	<h1 class="Win"></h1>
+	<label for="disks">Select the number of disks to use</label>
+	<select id="disks" name="disks">
+	  <option value="3">3</option>
+	  <option value="4">4</option>
+	  <option value="5">5</option>
+	  <option value="6">6</option>
+	</select>
+	<button class="reset">Reset</button>
+	<button class="solve">Reset and Solve</button>
+	<div class="container">
+		<div class="one"></div>
+		<div class="two"></div>
+		<div class="three"></div>
+		<div class="four"></div>
+		<div class="five"></div>
+		<div class="six"></div>
+		<div class="poleA"></div>
+		<div class="bottomA"></div>
+		<div class="poleB"></div>
+		<div class="bottomB"></div>
+		<div class="poleC"></div>
+		<div class="bottomC"></div>
+	</div>
+	<script src="main.js"></script>
+</body>
