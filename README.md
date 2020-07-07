@@ -1,0 +1,1 @@
+This is an interactive website that you can solve the Tower of Hanoi puzzle on.  In order to move disks, you first need to touch the source pole and then the destination pole.  Your goal is to get all disks from the first pole to the third.  You can only move one disk at a time and a larger disk can't be placed on a smaller one.
