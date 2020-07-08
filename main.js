@@ -11,6 +11,7 @@ var d3 = $(".three");
 var d4 = $(".four");
 var d5 = $(".five");
 var d6 = $(".six");
+var startTime = Date.now();
 var ogLeft = 312.5;
 var ogTop = 455;
 var diskArr = [d1, d2, d3, d4, d5, d6];
@@ -19,6 +20,10 @@ var score = 0;
 var selector = $("#disks");
 var isOneCLICKED = false;
 var clickedPole = "";
+var start = false;
+var started = false
+var end = true;
+
 selector.change(function(){
 
 	if(parseInt(selector.val()) != numDisks){
@@ -85,6 +90,7 @@ $(".aContainer").click(function(){
 	//alert('clicked');
 	//alert($('.one').css('left'));
 	//$(".one").css("left", parseInt($(".one").css("left").replace("px", "")) + {VALUE HERE} + "px");
+	start = true;
 	if(stackA.length == 0 && !isOneCLICKED){
 		isOneCLICKED = false;
 		console.log("That click didn't count!");
@@ -116,6 +122,7 @@ $(".aContainer").click(function(){
 	isWin();
 });
 $(".bContainer").click(function(){
+	start = true;
 	//alert('clicked');
 	//alert($('.one').css('left'));
 	//$(".one").css("left", parseInt($(".one").css("left").replace("px", "")) + {VALUE HERE} + "px");
@@ -150,6 +157,7 @@ $(".bContainer").click(function(){
 	isWin();
 });
 $(".cContainer").click(function(){
+	start = true;
 	if(stackC.length == 0 && !isOneCLICKED){
 		isOneCLICKED = false;
 		console.log("That click didn't count!");
@@ -207,6 +215,7 @@ function isWin(){
 		w = false;
 	}
 	if(w){
+		end = false;
 		winT.text("You Win! Click the reset button to play again.");
 	}
 	
