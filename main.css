@@ -5,6 +5,37 @@
 h1, h2, h3, h4, h5{
 	text-align:center;
 }
+.aContainer{
+	position:absolute;
+	background-color:transparent;
+	z-index:2;
+	left:175px;
+	top:275px;
+	border: 1px solid black;
+	width:330px;
+	height:400px;
+}
+
+.bContainer{
+	position:absolute;
+	background-color:transparent;
+	z-index:2;
+	left:575px;
+	top:275px;
+	border: 1px solid black;
+	width:330px;
+	height:400px;
+}
+.cContainer{
+	position:absolute;
+	background-color:transparent;
+	z-index:2;
+	left:975px;
+	top:275px;
+	border: 1px solid black;
+	width:330px;
+	height:400px;
+}
 .one{
 	background-color:green;
 	width:50px;

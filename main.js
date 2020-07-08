@@ -15,6 +15,7 @@ var ogLeft = 312.5;
 var ogTop = 455;
 var diskArr = [d1, d2, d3, d4, d5, d6];
 setup();
+var score = 0;
 var selector = $("#disks");
 var isOneCLICKED = false;
 var clickedPole = "";
@@ -23,7 +24,7 @@ selector.change(function(){
 	if(parseInt(selector.val()) != numDisks){
 		numDisks = parseInt(selector.val());
 		reset();
-		
+		document.getElementById('expected').textContent = "Minimum score: " + (Math.pow(2, numDisks) - 1);
 		redraw(parseInt(selector.val()));
 	}
 });
@@ -80,7 +81,7 @@ $(".reset").click(function(){
 	reset();
 	redraw(parseInt(selector.val()));
 });
-$(".poleA").click(function(){
+$(".aContainer").click(function(){
 	//alert('clicked');
 	//alert($('.one').css('left'));
 	//$(".one").css("left", parseInt($(".one").css("left").replace("px", "")) + {VALUE HERE} + "px");
@@ -103,6 +104,8 @@ $(".poleA").click(function(){
 				break;
 		}
 		isOneCLICKED = false;
+		score++;
+		document.getElementById('score').textContent = "Your score is: " + score;
 		draw();
 	}
 	else if(!isOneCLICKED){
@@ -112,7 +115,7 @@ $(".poleA").click(function(){
 	console.log("A: " + stackA + " B: " + stackB + " C: " + stackC);
 	isWin();
 });
-$(".poleB").click(function(){
+$(".bContainer").click(function(){
 	//alert('clicked');
 	//alert($('.one').css('left'));
 	//$(".one").css("left", parseInt($(".one").css("left").replace("px", "")) + {VALUE HERE} + "px");
@@ -136,6 +139,8 @@ $(".poleB").click(function(){
 		}
 		isOneCLICKED = false;
 		draw();
+		score++;
+		document.getElementById('score').textContent = "Your score is: " + score;
 	}
 	else if(!isOneCLICKED){
 		clickedPole = "B"
@@ -144,7 +149,7 @@ $(".poleB").click(function(){
 	console.log("A: " + stackA + " B: " + stackB + " C: " + stackC);
 	isWin();
 });
-$(".poleC").click(function(){
+$(".cContainer").click(function(){
 	if(stackC.length == 0 && !isOneCLICKED){
 		isOneCLICKED = false;
 		console.log("That click didn't count!");
@@ -163,6 +168,8 @@ $(".poleC").click(function(){
 				break;
 		}
 		isOneCLICKED = false;
+		score++;
+		document.getElementById('score').textContent = "Your score is: " + score;
 		draw();
 	}
 	else if(!isOneCLICKED){
@@ -218,7 +225,7 @@ function reset(){
 
 
 function redraw(n){
-
+	document.getElementById('expected').textContent = "Minimum score: " + (Math.pow(2, n) - 1);
 	for(var i = 0; i < n; i ++){
 		diskArr[i].show();
 		//alert(((6-n)*25 + "px"));
