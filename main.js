@@ -101,16 +101,18 @@ $(".aContainer").click(function(){
 				if(stackB[stackB.length-1]<stackA[stackA.length-1] || stackA.length==0){
 					stackA.push(stackB.pop());
 				}
+				score++;
 				break;
 			case "C":
 				stackA.push(stackC.pop());
 				if(stackC[stackC.length-1]<stackA[stackA.length-1] || stackA.length==0){
 					stackA.push(stackC.pop());
 				}
+				score++;
 				break;
 		}
 		isOneCLICKED = false;
-		score++;
+		
 		document.getElementById('score').textContent = "Your score is: " + score;
 		draw();
 	}
@@ -136,17 +138,18 @@ $(".bContainer").click(function(){
 				if(stackA[stackA.length-1]<stackB[stackB.length-1]|| stackB.length==0){
 					stackB.push(stackA.pop());
 				}
+				score++;
 				break;
 			case "C":
 				if(stackC[stackC.length-1]<stackB[stackB.length-1]|| stackB.length==0){
 					stackB.push(stackC.pop());
 				}
-				
+				score++;
 				break;
 		}
 		isOneCLICKED = false;
 		draw();
-		score++;
+
 		document.getElementById('score').textContent = "Your score is: " + score;
 	}
 	else if(!isOneCLICKED){
@@ -168,15 +171,17 @@ $(".cContainer").click(function(){
 				if(stackA[stackA.length-1]<stackC[stackC.length-1]|| stackC.length==0){
 					stackC.push(stackA.pop())
 				}
+				score++;
 				break;
 			case "B":
 				if(stackB[stackB.length-1]<stackC[stackC.length-1]|| stackC.length==0){
 					stackC.push(stackB.pop());
 				}
+				score++;
 				break;
 		}
 		isOneCLICKED = false;
-		score++;
+
 		document.getElementById('score').textContent = "Your score is: " + score;
 		draw();
 	}
