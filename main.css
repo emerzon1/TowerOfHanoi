@@ -15,7 +15,9 @@ h1, h2, h3, h4, h5{
 	width:330px;
 	height:400px;
 }
-
+.Win{
+	color:green;
+}
 .bContainer{
 	position:absolute;
 	background-color:transparent;

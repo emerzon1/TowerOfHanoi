@@ -224,6 +224,8 @@ function reset(){
 	stackA = [];
 	stackB = [];
 	stackC = [];
+	score = 0;
+	document.getElementById('score').textContent = "Your score is: " + score;
 	for(var i = 0; i < diskArr.length; i ++){
 		diskArr[i].hide();
 		diskArr[i].css("left", ogLeft-12.5*i);
@@ -235,6 +237,8 @@ function reset(){
 
 function redraw(n){
 	document.getElementById('expected').textContent = "Minimum score: " + (Math.pow(2, n) - 1);
+	score = 0;
+	document.getElementById('score').textContent = "Your score is: " + score;
 	for(var i = 0; i < n; i ++){
 		diskArr[i].show();
 		//alert(((6-n)*25 + "px"));
