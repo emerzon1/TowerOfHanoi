@@ -52,14 +52,16 @@ $(".solve").click(function(){
 });
 function delay(){
 	return new Promise(resolve => {
-		setTimeout(() => { resolve(x); }, 500); 
+		setTimeout(() => { resolve(); }, 500); 
 	  }); 
 	   
 }
 async function otherHelper(arr){
 	for(let i = 0; i < arr.length ;i ++){
-		delay()
-		get(parseInt(arr[i][1])).push(get(parseInt(arr[i][0]).pop()));
+		await delay()
+		get(parseInt(arr[i][1])).push(get(parseInt(arr[i][0])).pop());
+		score++;
+		console.log("mv disk from" + arr[i][0] + " to " + arr[i][1]);
 		draw();
 	}
 }
@@ -260,6 +262,7 @@ function redraw(n){
 }
 function draw(){
 	//draw stackA
+	document.getElementById('score').textContent = "Your score is: " + score;
 	for(var i = 0; i < stackA.length; i ++){//THERE ARE TWO (3, 2) -> the TOP SHOULDN'T CHANGE
 		diskArr[stackA[i]-1].css("top", ogTop + ((6-i)*25) - 25 + "px");
 		diskArr[stackA[i]-1].css("left", ogLeft - .5 * parseInt(diskArr[stackA[i]-1].css("width").replace("px", "")) + 25);
