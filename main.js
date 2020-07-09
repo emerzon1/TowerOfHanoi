@@ -42,34 +42,38 @@ function sleep(ms)
         })
     );
 }
+moves = [];
 $(".solve").click(function(){
 	reset();
 	redraw(parseInt(selector.val()));
+	moves = [];
 	helper(parseInt(selector.val()), 0, 2, 1);
+	otherHelper(moves);
 });
+function delay(){
+	return new Promise(resolve => {
+		setTimeout(() => { resolve(x); }, 500); 
+	  }); 
+	   
+}
+async function otherHelper(arr){
+	for(let i = 0; i < arr.length ;i ++){
+		delay()
+		get(parseInt(arr[i][1])).push(get(parseInt(arr[i][0]).pop()));
+		draw();
+	}
+}
 function helper(n, src, dest, spare){
 	if(n==1){
-		get(dest).push(get(src).pop());
+		moves.push(src + "" + dest)
 		//console.log(stackA + " " + stackB + " " + stackC);
-		sleep(500).then(function(){
-			draw()
-		});
+		
 	}
 	else{
-		sleep(500).then(function(){
-			helper(n-1, src, spare, dest)
-			draw();
-			get(dest).push(get(src).pop());
-			sleep(500).then(function(){
-				draw();
-				sleep(500).then(function(){
-					helper(n-1, spare, dest, src);
-					draw();
-				});
-			});
-		});
+		helper(n-1, src, spare, dest)
+		moves.push(src + "" + dest)
+		helper(n-1, spare, dest, src);
 	}
-	draw();
 }
 function get(src){
 	if(src==0){
