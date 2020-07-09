@@ -10,6 +10,7 @@ var d2 = $(".two");
 var d3 = $(".three");
 var d4 = $(".four");
 var d5 = $(".five");
+var uI = true;
 var d6 = $(".six");
 var startTime = Date.now();
 var ogLeft = 312.5;
@@ -44,11 +45,13 @@ function sleep(ms)
 }
 moves = [];
 $(".solve").click(function(){
+	uI = false;
 	reset();
 	redraw(parseInt(selector.val()));
 	moves = [];
 	helper(parseInt(selector.val()), 0, 2, 1);
 	otherHelper(moves);
+	uI = true;
 });
 function delay(){
 	return new Promise(resolve => {
@@ -93,6 +96,7 @@ $(".reset").click(function(){
 	redraw(parseInt(selector.val()));
 });
 $(".aContainer").click(function(){
+	if(uI){
 	//alert('clicked');
 	//alert($('.one').css('left'));
 	//$(".one").css("left", parseInt($(".one").css("left").replace("px", "")) + {VALUE HERE} + "px");
@@ -127,9 +131,10 @@ $(".aContainer").click(function(){
 		isOneCLICKED = true;
 	}
 	console.log("A: " + stackA + " B: " + stackB + " C: " + stackC);
-	isWin();
+	isWin();}
 });
 $(".bContainer").click(function(){
+	if(uI){
 	start = true;
 	//alert('clicked');
 	//alert($('.one').css('left'));
@@ -163,9 +168,10 @@ $(".bContainer").click(function(){
 		isOneCLICKED = true;
 	}
 	console.log("A: " + stackA + " B: " + stackB + " C: " + stackC);
-	isWin();
+	isWin();}
 });
 $(".cContainer").click(function(){
+	if(uI){
 	start = true;
 	if(stackC.length == 0 && !isOneCLICKED){
 		isOneCLICKED = false;
@@ -195,7 +201,7 @@ $(".cContainer").click(function(){
 		clickedPole = "C"
 		isOneCLICKED = true;
 	}
-	isWin();
+	isWin();}
 });
 function setup(){
 	d4.hide();
