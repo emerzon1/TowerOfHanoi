@@ -12,7 +12,7 @@ var d4 = $(".four");
 var d5 = $(".five");
 let uI = true;
 var d6 = $(".six");
-var startTime = Date.now();
+var time = 0;
 var ogLeft = 312.5;
 var ogTop = 455;
 var diskArr = [d1, d2, d3, d4, d5, d6];
@@ -24,7 +24,16 @@ var clickedPole = "";
 var start = false;
 var started = false
 var end = true;
-
+let TIMEOUT;
+$(document).ready(function(){
+	TIMEOUT = setInterval(function(){increment();}, 1000);
+});
+function increment(){
+	if(start){
+		time++;
+		document.getElementById('time').textContent = "Time taken: " + time + ((time==1)?" second" : " seconds");
+	}
+}
 selector.change(function () {
 
 	if (parseInt(selector.val()) != numDisks) {
@@ -45,6 +54,10 @@ moves = [];
 $(".solve").click(function () {
 	uI = false;
 	reset();
+	document.getElementById('time').textContent = "Time taken: 0 seconds";
+	time = 0;
+	start = false;
+	clearInterval();
 	redraw(parseInt(selector.val()));
 	moves = [];
 	helper(parseInt(selector.val()), 0, 2, 1);
@@ -92,6 +105,10 @@ function get(src) {
 }
 $(".reset").click(function () {
 	reset();
+	clearInterval();
+	start = false;
+	time = 0;
+	document.getElementById('time').textContent = "Time taken: 0 seconds";
 	redraw(parseInt(selector.val()));
 });
 $(".aContainer").click(function () {
@@ -238,6 +255,10 @@ function isWin() {
 	}
 	if (w) {
 		end = false;
+		time = 0;
+		clearInterval();
+		start = false;
+		uI = false;
 		winT.text("You Win! Click the reset button to play again.");
 	}
 
