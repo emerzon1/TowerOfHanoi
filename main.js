@@ -49,7 +49,7 @@ $(".solve").click(function () {
 	moves = [];
 	helper(parseInt(selector.val()), 0, 2, 1);
 	otherHelper(moves);
-	uI = true;
+	
 });
 function delay() {
 	return new Promise(resolve => {
@@ -65,6 +65,7 @@ async function otherHelper(arr) {
 		console.log("mv disk from" + arr[i][0] + " to " + arr[i][1]);
 		draw();
 	}
+	uI = true;
 }
 function helper(n, src, dest, spare) {
 	if (n == 1) {
